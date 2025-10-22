@@ -117,9 +117,7 @@ class ENVIRONMENT {
     if (visualizable_) {
       server_ = std::make_unique<raisim::RaisimServer>(&world_);
       server_->focusOn(raibo_);
-      if(ip==8080) server_->launchServer(8080);
-      else server_->launchServer(98);
-
+      server_->launchServer(ip);
     }
   }
 

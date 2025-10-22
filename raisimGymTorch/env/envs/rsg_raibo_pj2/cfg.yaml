@@ -8,8 +8,8 @@ environment:
   render: True
   num_envs: 300
   eval_every_n: 100
-  iteration_per_save: 500
-  iteration_per_record: 300
+  iteration_per_save: 100
+  iteration_per_record: 100
   num_threads: 120
   simulation_dt: 0.0025
   control_dt: 0.01
@@ -17,7 +17,7 @@ environment:
   iteration_per_log: 50
   randomization:
     test_mode: False
-    terrain_randomization: True
+    terrain_randomization: False
     observation_randomization: True
     joint_friction_randomization: True
     voltage_randomization: False

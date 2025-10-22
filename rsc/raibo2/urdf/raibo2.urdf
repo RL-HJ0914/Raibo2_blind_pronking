@@ -152,8 +152,8 @@
     <axis
       xyz="0 1 0" />
     <limit
-      lower="-6.2832"
-      upper="6.2832"
+      lower="-2.428"
+      upper="3.185"
       effort="90.8558"
       velocity="31.5" />
     <dynamics
@@ -186,9 +186,9 @@
       <material name="black"/>
     </visual>
     <collision>
-      <origin rpy="0 1.528031849 0" xyz="0.00606 0 -0.14162"/>
+      <origin rpy="0 1.528031849 0" xyz="0.00606 0 -0.08162"/>
       <geometry>
-        <box size="0.1765 0.02586 0.029"/>
+        <box size="0.2965 0.02586 0.029"/>
       </geometry>
     </collision>
     <collision>
@@ -366,8 +366,8 @@
     <axis
       xyz="0 1 0" />
     <limit
-      lower="-6.2832"
-      upper="6.2832"
+      lower="-2.428"
+      upper="3.185"
       effort="90.8558"
       velocity="31.5" />
     <dynamics
@@ -400,9 +400,9 @@
       <material name="black"/>
     </visual>
     <collision>
-      <origin rpy="0 1.528031849 0" xyz="0.00606 0 -0.14162"/>
+      <origin rpy="0 1.528031849 0" xyz="0.00606 0 -0.08162"/>
       <geometry>
-        <box size="0.1765 0.02586 0.029"/>
+        <box size="0.2965 0.02586 0.029"/>
       </geometry>
     </collision>
     <collision>
@@ -580,8 +580,8 @@
     <axis
       xyz="0 1 0" />
     <limit
-      lower="-6.2832"
-      upper="6.2832"
+      lower="-1.639"
+      upper="3.972"
       effort="90.8558"
       velocity="31.5" />
     <dynamics
@@ -614,9 +614,9 @@
       <material name="black"/>
     </visual>
     <collision>
-      <origin rpy="0 1.528031849 0" xyz="0.00606 0 -0.14162"/>
+      <origin rpy="0 1.528031849 0" xyz="0.00606 0 -0.08162"/>
       <geometry>
-        <box size="0.1765 0.02586 0.029"/>
+        <box size="0.2965 0.02586 0.029"/>
       </geometry>
     </collision>
     <collision>
@@ -794,8 +794,8 @@
     <axis
       xyz="0 1 0" />
     <limit
-      lower="-6.2832"
-      upper="6.2832"
+      lower="-1.639"
+      upper="3.972"
       effort="90.8558"
       velocity="31.5" />
     <dynamics
@@ -828,9 +828,9 @@
       <material name="black"/>
     </visual>
     <collision>
-      <origin rpy="0 1.528031849 0" xyz="0.00606 0 -0.14162"/>
+      <origin rpy="0 1.528031849 0" xyz="0.00606 0 -0.08162"/>
       <geometry>
-        <box size="0.1765 0.02586 0.029"/>
+        <box size="0.2965 0.02586 0.029"/>
       </geometry>
     </collision>
     <collision>

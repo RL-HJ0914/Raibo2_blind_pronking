@@ -47,7 +47,7 @@ env = VecEnv(RaisimGymRaiboPJ2(home_path + "/rsc", dump(cfg['environment'], Dump
 ob_dim = env.num_obs
 act_dim = env.num_acts
 
-weight_path = "/home/hyungjun/raisim_workspace/Raibo2_blind_bounding/raisimGymTorch/data/raibo2_blind_bounding/2025-01-16-02-28-07/full_10000.pt"
+weight_path = "/home/hyeongjun/Research/raisim_workspace/Raibo2_blind_pronking/raisimGymTorch/data/raibo2_blind_pronking/2025-10-22-18-06-14/full_2000.pt"
 iteration_number = weight_path.rsplit('/', 1)[1].split('_', 1)[1].rsplit('.', 1)[0]
 weight_dir = weight_path.rsplit('/', 1)[0] + '/'
 
@@ -105,7 +105,7 @@ else:
                     env.reset()
                     print("env reset")
         if len(joysticks) > 0:
-            command[0] = -4 * joysticks[0].get_axis(1)
+            command[0] = -1 * joysticks[0].get_axis(1)
             command[1] = - joysticks[0].get_axis(0)
             command[2] = - joysticks[0].get_axis(3)
 

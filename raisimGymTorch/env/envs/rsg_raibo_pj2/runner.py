@@ -1,5 +1,5 @@
 # task specification
-task_name = "raibo2_blind_bounding"
+task_name = "raibo2_blind_pronking"
 
 from ruamel.yaml import YAML, dump, RoundTripDumper
 from raisimGymTorch.env.bin.rsg_raibo_pj2 import RaisimGymRaiboPJ2
@@ -109,7 +109,7 @@ iteration_number = 0
 time_str=datetime.datetime.now().strftime("%m-%d-%H")
 
 if (wandb_log):
-    wandb.init(project="Raibo2_blind_bounding", name=time_str+"at"+str(ip),
+    wandb.init(project="Raibo2_blind_pronking", name=time_str+"at"+str(ip),
                config={
                    "num_envs ": cfg["environment"]["num_envs"],
                    "max time ": cfg["environment"]["max_time"]

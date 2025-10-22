@@ -32,7 +32,7 @@ class ENVIRONMENT {
     raibo_->setName("robot");
     raibo_->setControlMode(raisim::ControlMode::FORCE_AND_TORQUE);
     jointLimit_ = raibo_->getJointLimits();
-    maxForwardVel_ = 4.0;
+    maxForwardVel_ = 1.0;
 
     /// create controller
     controller_.create(&world_);
@@ -302,18 +302,18 @@ class ENVIRONMENT {
     Eigen::Vector4d terrainParams;
     terrainParams(0) = 2 * maxTime_ * maxForwardVel_ - (2 * maxTime_ * maxForwardVel_ - 20) * terrainLevel_;
     if (groundType_ == RandomHeightMapGenerator::GroundType::HEIGHT_MAP) {
-      terrainParams(1) = 0.2 + 0.8 * uniDist_(gen_); /// frequency ~ U(0.2, 1.0)
-      terrainParams(2) = 0.2 + 1.2 * terrainLevel_; /// amplitude 0.2 -> 1.4
+      terrainParams(1) = 0.2 + 0.4 * uniDist_(gen_); /// frequency ~ U(0.2, 1.0)
+      terrainParams(2) = 0.2 + 0.4 * terrainLevel_; /// amplitude 0.2 -> 1.4
       groundTypeVector_ << 1.0, 0.0, 0.0;
     }
     else if (groundType_ == RandomHeightMapGenerator::GroundType::HEIGHT_MAP_DISCRETE) {
-      terrainParams(1) = 0.2 + 1.0 * terrainLevel_; /// amplitude 0.2 -> 1.2
-      terrainParams(2) = 0.02 + 0.13 * uniDist_(gen_); /// step size ~ U(0.02, 0.15)
+      terrainParams(1) = 0.2 + 0.5 * terrainLevel_; /// amplitude 0.2 -> 1.2
+      terrainParams(2) = 0.01 + 0.03 * uniDist_(gen_); /// step size ~ U(0.02, 0.15)
       groundTypeVector_ << 1.0, 0.0, 0.0;
     }
     else if (groundType_ == RandomHeightMapGenerator::GroundType::STEPS) {
       terrainParams(1) = 0.1 + 0.4 * uniDist_(gen_); /// width ~ U(0.1, 0.5)
-      terrainParams(2) = 0.02 + 0.16 * terrainLevel_; /// height 0.02 -> 0.18
+      terrainParams(2) = 0.01 + 0.03 * terrainLevel_; /// height 0.02 -> 0.18
       groundTypeVector_ << 0.0, 1.0, 0.0;
     }
     else if (groundType_ == RandomHeightMapGenerator::GroundType::STEPS_INCLINE) {
@@ -336,7 +336,7 @@ class ENVIRONMENT {
     if (groundType_ == RandomHeightMapGenerator::GroundType::SLOPE) {
       terrainParams(1) = 0.2 + 0.6 * uniDist_(gen_); /// frequency ~ U(0.2, 0.8)
       terrainParams(2) = 0.2 + 0.4 * terrainLevel_; /// amplitude 0.2 -> 0.6
-      terrainParams(3) = 35.0 / 180 * M_PI * terrainLevel_; /// 35deg
+      terrainParams(3) = 10.0 / 180 * M_PI * terrainLevel_; /// 35deg
       groundTypeVector_ << 1.0, 0.0, 0.0;
     }
     else if (groundType_ == RandomHeightMapGenerator::GroundType::STAIRS3) {

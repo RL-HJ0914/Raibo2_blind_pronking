@@ -85,7 +85,7 @@ class RaiboController {
     stepDataTag_ = {"command_rew",
                     "airtime_rew",
                     "base_height_rew",
-                    "bound_rew",
+                    "pronk_rew",
                     "foot_clearance_rew",
                     "foot_vel_before_contact_rew",
                     "base_motion_rew",
@@ -382,7 +382,7 @@ class RaiboController {
     READ_YAML(double, jointPowerRewardCoeff_, cfg["reward"]["joint_power_reward_coeff"])
     READ_YAML(double, undesiredGRFRewardCoeff_, cfg["reward"]["undesired_GRF_reward_coeff"])
     READ_YAML(double, flightPhaseRewardCoeff_, cfg["reward"]["flight_phase_reward_coeff"])
-    READ_YAML(double, boundRewardCoeff_, cfg["reward"]["bound_reward_coeff"])
+    READ_YAML(double, pronkRewardCoeff_, cfg["reward"]["pronk_reward_coeff"])
     READ_YAML(double, smoothRewardCurriculumEnd_, cfg["curriculum"]["target_smoothness_end"])
   }
 
@@ -398,7 +398,7 @@ class RaiboController {
 
     baseHeightReward_ += baseHeightRewardCoeff_ * std::exp(-10.0 * std::abs(targetBaseHeight - baseHeight_));
 
-    baseMotionReward_ += baseMotionRewardCoeff_ * (bodyLinVel_[2] * bodyLinVel_[2] + 0.02 * fabs(bodyAngVel_[0]) + 0.02 * fabs(bodyAngVel_[1]));
+    baseMotionReward_ += baseMotionRewardCoeff_ * (0.02 * fabs(bodyAngVel_[0]) + 0.02 * fabs(bodyAngVel_[1]));
 
     torqueReward_ += torqueRewardCoeff_ * jointTorque_.squaredNorm();
 
@@ -503,12 +503,10 @@ class RaiboController {
     }
     jointLimitReward_ += cf * jointLimitRewardCoeff_ * jointLimitReward;
 
-    /// Bound reward
-    if ((footContactState_[0] && footContactState_[1] && !footContactState_[2] && !footContactState_[3]) or
-        (!footContactState_[0] && !footContactState_[1] && footContactState_[2] && footContactState_[3]) or
-        (!footContactState_[0] && !footContactState_[1] && !footContactState_[2] && !footContactState_[3]))
+    /// Pronk reward
+    if (!footContactState_[0] && !footContactState_[1] && !footContactState_[2] && !footContactState_[3])
     {
-      if (!standingMode_) boundReward_ += boundRewardCoeff_ ;
+      if (!standingMode_) pronkReward_ += pronkRewardCoeff_ ;
     }
   }
 
@@ -518,7 +516,7 @@ class RaiboController {
     stepData_[0] = commandTrackingReward_;
     stepData_[1] = airtimeReward_;
     stepData_[2] = baseHeightReward_;
-    stepData_[3] = boundReward_;
+    stepData_[3] = pronkReward_;
     stepData_[4] = footClearanceReward_;
     stepData_[5] = footVelBeforeContactReward_;
     stepData_[6] = baseMotionReward_;
@@ -547,7 +545,7 @@ class RaiboController {
     commandTrackingReward_ = 0.;
     airtimeReward_ = 0.;
     baseHeightReward_ = 0.;
-    boundReward_ = 0.;
+    pronkReward_ = 0.;
     footClearanceReward_ = 0.;
     footVelBeforeContactReward_ = 0.;
     baseMotionReward_ = 0.;
@@ -701,7 +699,7 @@ class RaiboController {
   double flightPhaseRewardCoeff_ = 0., flightPhaseReward_ = 0.;
   double torqueSmoothRewardCoeff_ = 0., torqueSmoothReward_ = 0.;
   double orientationRewardCoeff_ = 0., orientationReward_ = 0.;
-  double boundRewardCoeff_ = 0., boundReward_ = 0.;
+  double pronkRewardCoeff_ = 0., pronkReward_ = 0.;
   double terminalRewardCoeff_ = 0.0;
   double baseHeight_;
   Eigen::VectorXd nominalJointPosWeight_;

@@ -16,17 +16,16 @@ class RandomHeightMapGenerator {
  public:
 
   enum class GroundType : int {
-    HEIGHT_MAP = 0,
+    FLAT = 0,
+    HEIGHT_MAP,
+    HEIGHT_MAP_DISCRETE,
     SLOPE,
-    STAIRS,
     STEPS,
+    STAIRS,
     NOSING_STAIRS,
     TUK,
-    HEIGHT_MAP_DISCRETE,
     STEPS_INCLINE,
-    STAIRS3,
-    FLAT
-  };
+    STAIRS3  };
 
   RandomHeightMapGenerator() = default;
 

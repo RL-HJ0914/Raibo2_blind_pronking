@@ -41,7 +41,7 @@ environment:
     smooth_reward2_coeff: -10.0
     slip_reward_coeff: -8.0e-2
     joint_limit_reward_coeff: -1.0
-    bound_reward_coeff: 1.0
+    pronk_reward_coeff: 1.0
     positive_reward_coeff: 1.0
     negative_reward_coeff: 1.0
     GRF_smooth_reward_coeff: 0 #-3.0e-6
@@ -50,7 +50,7 @@ environment:
     undesired_GRF_reward_coeff: 0 #-1.0e-2
     flight_phase_reward_coeff: 0 #-2.0
     torque_smooth_reward_coeff: 0 #-1.0e-10
-    orientation_reward_coeff: 0 #-1.0
+    orientation_reward_coeff: -1.0 #-1.0
   curriculum:
     iteration_per_update: 5
     iteration_per_terrain_update: 40
@@ -58,7 +58,7 @@ environment:
     decay_factor: 0.97
     terrain_initial_factor: 0.01
     terrain_decay_factor: 0.97
-    target_learning_episode_end: 10000
+    target_learning_episode_end: 4000
     target_smoothness_end: 1
 
 architecture:

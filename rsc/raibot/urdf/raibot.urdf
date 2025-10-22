@@ -1,0 +1,1034 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="raibot">
+  <link
+    name="base">
+    <inertial>
+      <origin
+        xyz="-0.00029991 0.00016404 -0.03744115"
+        rpy="0 0 0" />
+      <mass
+        value="12.37167760" />
+      <inertia
+        ixx="0.09099956"
+        ixy="0.00086574"
+        ixz="0.00061281"
+        iyy="0.31985024"
+        iyz="-0.00010439"
+        izz="0.38017107" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 -0.03625"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.494 0.160 0.120"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin
+        xyz="0 0 -0.03625"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.494 0.242 0.082"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin
+        xyz="0 0 -0.03625"
+        rpy="0 0 0" />
+      <geometry>
+        <box size="0.494 0.276 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="LF_HIP">
+    <inertial>
+      <origin
+        xyz="-0.01076416 -0.02789344 0.00001059"
+        rpy="0 0 0" />
+      <mass
+        value="1.29077719" />
+      <inertia
+        ixx="0.00098519"
+        ixy="-0.00038663"
+        ixz="0.00000019"
+        iyy="0.00159759"
+        iyz="-0.00000034"
+        izz="0.00161789" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="LF_HIP.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        rpy="1.57079632679 0 0"
+        xyz="0 0.036 0"/>
+      <geometry>
+        <cylinder length="0.1228" radius="0.048"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin
+        rpy="1.57079632679 0 0"
+        xyz="0 -0.0325 0"/>
+      <geometry>
+        <cylinder length="0.0396" radius="0.044"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LF_HAA"
+    type="revolute">
+    <origin
+      xyz="0.3072 0.08 -0.03625"
+      rpy="0 0 0" />
+    <parent
+      link="base" />
+    <child
+      link="LF_HIP" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="63.45"
+      velocity="25.7" />
+    <dynamics
+      rotor_inertia="0.005741839" />
+  </joint>
+  <link
+    name="LF_THIGH">
+    <inertial>
+      <origin
+        xyz="-0.00274830 -0.03667330 -0.03252796"
+        rpy="0 0 0" />
+      <mass
+        value="1.96391657" />
+      <inertia
+        ixx="0.01250320"
+        ixy="-0.00019782"
+        ixz="0.00056475"
+        iyy="0.01152322"
+        iyz="-0.00237505"
+        izz="0.00260694" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="LF_THIGH.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 1.57079632679 0" xyz="-0.02322 0 -0.120"/>
+      <geometry>
+        <box size="0.220 0.040 0.044"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="1.57079632679 0 0" xyz="0 0 -0.240"/>
+      <geometry>
+        <cylinder length="0.053" radius="0.0265"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LF_HFE"
+    type="revolute">
+    <origin
+      xyz="0 0.0889 0"
+      rpy="0 0 0" />
+    <parent
+      link="LF_HIP" />
+    <child
+      link="LF_THIGH" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-6.2832"
+      upper="6.2832"
+      effort="63.45"
+      velocity="25.7" />
+    <dynamics
+       rotor_inertia="0.005741839" />
+  </joint>
+  <link
+    name="LF_SHANK">
+    <inertial>
+      <origin
+        xyz="0.00130151 0.00028383 -0.07226528"
+        rpy="0 0 0" />
+      <mass
+        value="0.29554748" />
+      <inertia
+        ixx="0.00272392"
+        ixy="-0.00000023"
+        ixz="-0.00006457"
+        iyy="0.00273312"
+        iyz="0.00000543"
+        izz="0.00008268" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="LF_SHANK.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 1.42244334 0" xyz="0.0053 0 -0.0354"/>
+      <geometry>
+        <box size="0.0715 0.025 0.025"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="0 1.57100577 0" xyz="0.0103 0 -0.1544"/>
+      <geometry>
+        <box size="0.1711 0.020 0.0253"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LF_KFE"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.24"
+      rpy="0 0 0" />
+    <parent
+      link="LF_THIGH" />
+    <child
+      link="LF_SHANK" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-2.4696"
+      upper="-0.0262"
+      effort="63.45"
+      velocity="25.7" />
+    <dynamics
+       rotor_inertia="0.005741839" />
+  </joint>
+  <link
+    name="LF_FOOT">
+    <inertial>
+      <origin
+        xyz="-0.00051991 -0.00103462 -0.00171611"
+        rpy="0 0 0" />
+      <mass
+        value="0.06096633" />
+      <inertia
+        ixx="0.00001314"
+        ixy="-0.00000003"
+        ixz="-0.00000063"
+        iyy="0.00001600"
+        iyz="-0.00000011"
+        izz="0.00001501" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="LF_FOOT.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="1.57079632679 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.025" radius="0.0295"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LF_S2F"
+    type="fixed">
+    <origin
+      xyz="0 0 -0.24"
+      rpy="0 0 0" />
+    <parent
+      link="LF_SHANK" />
+    <child
+      link="LF_FOOT" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="RF_HIP">
+    <inertial>
+      <origin
+        xyz="-0.01073828 0.02789298 0.00001059"
+        rpy="0 0 0" />
+      <mass
+        value="1.29077719" />
+      <inertia
+        ixx="0.00098523"
+        ixy="0.00038772"
+        ixz="0.00000010"
+        iyy="0.00159830"
+        iyz="0.00000034"
+        izz="0.00161863" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="RF_HIP.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        rpy="1.57079632679 0 0"
+        xyz="0 -0.036 0"/>
+      <geometry>
+        <cylinder length="0.1228" radius="0.048"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin
+        rpy="1.57079632679 0 0"
+        xyz="0 0.0325 0"/>
+      <geometry>
+        <cylinder length="0.0396" radius="0.044"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RF_HAA"
+    type="revolute">
+    <origin
+      xyz="0.3072 -0.08 -0.03625"
+      rpy="0 0 0" />
+    <parent
+      link="base" />
+    <child
+      link="RF_HIP" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="63.45"
+      velocity="25.7" />
+    <dynamics
+       rotor_inertia="0.005741839" />
+  </joint>
+  <link
+    name="RF_THIGH">
+    <inertial>
+      <origin
+        xyz="-0.00276626 0.03667330 -0.03253545"
+        rpy="0 0 0" />
+      <mass
+        value="1.96391676" />
+      <inertia
+        ixx="0.01250229"
+        ixy="0.00019679"
+        ixz="0.00056362"
+        iyy="0.01152207"
+        iyz="0.00237461"
+        izz="0.00260670" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="RF_THIGH.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 1.57079632679 0" xyz="-0.02322 0 -0.120"/>
+      <geometry>
+        <box size="0.220 0.040 0.044"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="1.57079632679 0 0" xyz="0 0 -0.240"/>
+      <geometry>
+        <cylinder length="0.053" radius="0.0265"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RF_HFE"
+    type="revolute">
+    <origin
+      xyz="0 -0.0889 0"
+      rpy="0 0 0" />
+    <parent
+      link="RF_HIP" />
+    <child
+      link="RF_THIGH" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-6.2832"
+      upper="6.2832"
+      effort="63.45"
+      velocity="25.7" />
+    <dynamics
+       rotor_inertia="0.005741839" />
+  </joint>
+  <link
+    name="RF_SHANK">
+    <inertial>
+      <origin
+        xyz="0.00130082 0.00028383 -0.07226529"
+        rpy="0 0 0" />
+      <mass
+        value="0.29554748" />
+      <inertia
+        ixx="0.00272392"
+        ixy="-0.00000023"
+        ixz="-0.00006457"
+        iyy="0.00273312"
+        iyz="0.00000543"
+        izz="0.00008268" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="RF_SHANK.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 1.42244334 0" xyz="0.0053 0 -0.0354"/>
+      <geometry>
+        <box size="0.0715 0.025 0.025"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="0 1.57100577 0" xyz="0.0103 0 -0.1544"/>
+      <geometry>
+        <box size="0.1711 0.020 0.0253"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RF_KFE"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.24"
+      rpy="0 0 0" />
+    <parent
+      link="RF_THIGH" />
+    <child
+      link="RF_SHANK" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-2.4696"
+      upper="-0.0262"
+      effort="63.45"
+      velocity="25.7" />
+    <dynamics
+       rotor_inertia="0.005741839" />
+  </joint>
+  <link
+    name="RF_FOOT">
+    <inertial>
+      <origin
+        xyz="-0.00051991 -0.00103462 -0.00171611"
+        rpy="0 0 0" />
+      <mass
+        value="0.06096633" />
+      <inertia
+        ixx="0.00001314"
+        ixy="-0.00000003"
+        ixz="-0.00000063"
+        iyy="0.00001600"
+        iyz="-0.00000011"
+        izz="0.00001501" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="RF_FOOT.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="1.57079632679 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.025" radius="0.0295"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RF_S2F"
+    type="fixed">
+    <origin
+      xyz="0 0 -0.24"
+      rpy="0 0 0" />
+    <parent
+      link="RF_SHANK" />
+    <child
+      link="RF_FOOT" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="LH_HIP">
+    <inertial>
+      <origin
+        xyz="0.01073455 -0.02789344 -0.00000109"
+        rpy="0 0 0" />
+      <mass
+        value="1.29077719" />
+      <inertia
+        ixx="0.00098523"
+        ixy="0.00038778"
+        ixz="0.00000000"
+        iyy="0.00159841"
+        iyz="0.00000013"
+        izz="0.00161867" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="LH_HIP.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        rpy="1.57079632679 0 0"
+        xyz="0 0.036 0"/>
+      <geometry>
+        <cylinder length="0.1228" radius="0.048"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin
+        rpy="1.57079632679 0 0"
+        xyz="0 -0.0325 0"/>
+      <geometry>
+        <cylinder length="0.0396" radius="0.044"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LH_HAA"
+    type="revolute">
+    <origin
+      xyz="-0.3072 0.08 -0.03625"
+      rpy="0 0 0" />
+    <parent
+      link="base" />
+    <child
+      link="LH_HIP" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="63.45"
+      velocity="25.7" />
+    <dynamics
+       rotor_inertia="0.005741839" />
+  </joint>
+  <link
+    name="LH_THIGH">
+    <inertial>
+      <origin
+        xyz="-0.00274824 -0.03667330 -0.03252704"
+        rpy="0 0 0" />
+      <mass
+        value="1.96391657" />
+      <inertia
+        ixx="0.01250319"
+        ixy="-0.00019783"
+        ixz="0.00056475"
+        iyy="0.01152322"
+        iyz="-0.00237504"
+        izz="0.00260694" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="LH_THIGH.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 1.57079632679 0" xyz="-0.02322 0 -0.120"/>
+      <geometry>
+        <box size="0.220 0.040 0.044"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="1.57079632679 0 0" xyz="0 0 -0.240"/>
+      <geometry>
+        <cylinder length="0.053" radius="0.0265"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LH_HFE"
+    type="revolute">
+    <origin
+      xyz="0 0.0889 0"
+      rpy="0 0 0" />
+    <parent
+      link="LH_HIP" />
+    <child
+      link="LH_THIGH" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-6.2832"
+      upper="6.2832"
+      effort="63.45"
+      velocity="25.7" />
+    <dynamics
+       rotor_inertia="0.005741839" />
+  </joint>
+  <link
+    name="LH_SHANK">
+    <inertial>
+      <origin
+        xyz="0.00130151 0.00028383 -0.07226525"
+        rpy="0 0 0" />
+      <mass
+        value="0.29554748" />
+      <inertia
+        ixx="0.00272392"
+        ixy="-0.00000023"
+        ixz="-0.00006457"
+        iyy="0.00273312"
+        iyz="0.00000543"
+        izz="0.00008268" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="LH_SHANK.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 1.42244334 0" xyz="0.0053 0 -0.0354"/>
+      <geometry>
+        <box size="0.0715 0.025 0.025"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="0 1.57100577 0" xyz="0.0103 0 -0.1544"/>
+      <geometry>
+        <box size="0.1711 0.020 0.0253"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LH_KFE"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.24"
+      rpy="0 0 0" />
+    <parent
+      link="LH_THIGH" />
+    <child
+      link="LH_SHANK" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-2.4696"
+      upper="-0.0262"
+      effort="63.45"
+      velocity="25.7" />
+    <dynamics
+       rotor_inertia="0.005741839" />
+  </joint>
+  <link
+    name="LH_FOOT">
+    <inertial>
+      <origin
+        xyz="-0.00051991 -0.00103462 -0.00171611"
+        rpy="0 0 0" />
+      <mass
+        value="0.06096633" />
+      <inertia
+        ixx="0.00001314"
+        ixy="-0.00000003"
+        ixz="-0.00000063"
+        iyy="0.00001600"
+        iyz="-0.00000011"
+        izz="0.00001501" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="LH_FOOT.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="1.57079632679 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.025" radius="0.0295"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="LH_S2F"
+    type="fixed">
+    <origin
+      xyz="0 0 -0.24"
+      rpy="0 0 0" />
+    <parent
+      link="LH_SHANK" />
+    <child
+      link="LH_FOOT" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="RH_HIP">
+    <inertial>
+      <origin
+        xyz="0.01074969 0.02789298 -0.00001644"
+        rpy="0 0 0" />
+      <mass
+        value="1.29077719" />
+      <inertia
+        ixx="0.00098517"
+        ixy="-0.00038732"
+        ixz="0.00000022"
+        iyy="0.00159798"
+        iyz="-0.00000061"
+        izz="0.00161837" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="RH_HIP.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        rpy="1.57079632679 0 0"
+        xyz="0 -0.036 0"/>
+      <geometry>
+        <cylinder length="0.1228" radius="0.048"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin
+        rpy="1.57079632679 0 0"
+        xyz="0 0.0325 0"/>
+      <geometry>
+        <cylinder length="0.0396" radius="0.044"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RH_HAA"
+    type="revolute">
+    <origin
+      xyz="-0.3072 -0.08 -0.03625"
+      rpy="0 0 0" />
+    <parent
+      link="base" />
+    <child
+      link="RH_HIP" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.1416"
+      upper="3.1416"
+      effort="63.45"
+      velocity="25.7" />
+    <dynamics
+       rotor_inertia="0.005741839" />
+  </joint>
+  <link
+    name="RH_THIGH">
+    <inertial>
+      <origin
+        xyz="-0.00275637 0.03667150 -0.03254657"
+        rpy="0 0 0" />
+      <mass
+        value="1.96391676" />
+      <inertia
+        ixx="0.01250094"
+        ixy="0.00019734"
+        ixz="0.00056417"
+        iyy="0.01152066"
+        iyz="0.00237400"
+        izz="0.00260716" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="RH_THIGH.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 1.57079632679 0" xyz="-0.02322 0 -0.120"/>
+      <geometry>
+        <box size="0.220 0.040 0.044"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="1.57079632679 0 0" xyz="0 0 -0.240"/>
+      <geometry>
+        <cylinder length="0.053" radius="0.0265"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RH_HFE"
+    type="revolute">
+    <origin
+      xyz="0 -0.0889 0"
+      rpy="0 0 0" />
+    <parent
+      link="RH_HIP" />
+    <child
+      link="RH_THIGH" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-6.2832"
+      upper="6.2832"
+      effort="63.45"
+      velocity="25.7" />
+    <dynamics
+       rotor_inertia="0.005741839" />
+  </joint>
+  <link
+    name="RH_SHANK">
+    <inertial>
+      <origin
+        xyz="0.00130151 0.00028383 -0.07226529"
+        rpy="0 0 0" />
+      <mass
+        value="0.29554748 " />
+      <inertia
+        ixx="0.00272392"
+        ixy="-0.00000023"
+        ixz="-0.00006457"
+        iyy="0.00273312"
+        iyz="0.00000543"
+        izz="0.00008268" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="RH_SHANK.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 1.42244334 0" xyz="0.0053 0 -0.0354"/>
+      <geometry>
+        <box size="0.0715 0.025 0.025"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="0 1.57100577 0" xyz="0.0103 0 -0.1544"/>
+      <geometry>
+        <box size="0.1711 0.020 0.0253"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RH_KFE"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.24"
+      rpy="0 0 0" />
+    <parent
+      link="RH_THIGH" />
+    <child
+      link="RH_SHANK" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-2.4696"
+      upper="-0.0262"
+      effort="63.45"
+      velocity="25.7" />
+    <dynamics
+       rotor_inertia="0.005741839" />
+  </joint>
+  <link
+    name="RH_FOOT">
+    <inertial>
+      <origin
+        xyz="-0.00051991 -0.00103462 -0.00171611"
+        rpy="0 0 0" />
+      <mass
+        value="0.06096633" />
+      <inertia
+        ixx="0.00001314"
+        ixy="-0.00000003"
+        ixz="-0.00000063"
+        iyy="0.00001600"
+        iyz="-0.00000011"
+        izz="0.00001501" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="RH_FOOT.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="1.57079632679 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.025" radius="0.0295"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RH_S2F"
+    type="fixed">
+    <origin
+      xyz="0 0 -0.24"
+      rpy="0 0 0" />
+    <parent
+      link="RH_SHANK" />
+    <child
+      link="RH_FOOT" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

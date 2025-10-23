@@ -28,11 +28,11 @@ environment:
   reward:
     command_tracking_reward_coeff: 1.5
     airtime_reward_coeff: 0.9
-    base_height_reward_coeff: 0.5
-    foot_clearance_reward_coeff: -120.0
+    base_height_reward_coeff: 2.0
+    foot_clearance_reward_coeff: -30.0
     foot_vel_before_contact_reward_coeff: -0.4
     base_motion_reward_coeff: -20.0
-    torque_reward_coeff: -2.0e-4
+    torque_reward_coeff: -8.0e-4
     joint_velocity_reward_coeff: -1.6e-3
     joint_accel_reward_coeff: -1.0e-2
     nominal_pos_reward_coeff: -2.0
@@ -50,7 +50,7 @@ environment:
     undesired_GRF_reward_coeff: 0 #-1.0e-2
     flight_phase_reward_coeff: 0 #-2.0
     torque_smooth_reward_coeff: 0 #-1.0e-10
-    orientation_reward_coeff: -1.0 #-1.0
+    orientation_reward_coeff: -4.0 #-1.0
   curriculum:
     iteration_per_update: 5
     iteration_per_terrain_update: 40
@@ -58,7 +58,7 @@ environment:
     decay_factor: 0.97
     terrain_initial_factor: 0.01
     terrain_decay_factor: 0.97
-    target_learning_episode_end: 4000
+    target_learning_episode_end: 2000
     target_smoothness_end: 1
 
 architecture:

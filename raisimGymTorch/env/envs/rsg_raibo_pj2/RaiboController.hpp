@@ -388,7 +388,7 @@ class RaiboController {
 
   inline void accumulateRewards(const double &cf, const RandomHeightMapGenerator::GroundType &groundType, const bool &pyramidOrNot, const double &envTerrainLevel, const int &iter) {
     double targetBaseHeight = 0.5;
-    double targetFootHeight = 0.10;
+    double targetFootHeight = 0.06;
     double terrainLevel = envTerrainLevel;
     double linearCommandTrackingReward = 0., angularCommandTrackingReward = 0.;
     linearCommandTrackingReward += std::exp(-1.0 * (command_.head(2) - bodyLinVel_.head(2)).squaredNorm());
@@ -441,8 +441,8 @@ class RaiboController {
       else {
         if (airTime_[i] < 0.25)
           airtimeReward_ += std::min(airTime_[i], 0.2) * airtimeRewardCoeff_;
-        if (stanceTime_[i] < 0.25)
-          airtimeReward_ += std::min(stanceTime_[i], 0.2) * airtimeRewardCoeff_;
+        if (stanceTime_[i] < 0.6)
+          airtimeReward_ += 3*std::min(stanceTime_[i], 0.6) * airtimeRewardCoeff_;
 
         jointRollPosReward_ += cf * jointRollPosRewardCoeff_ * (std::abs(command_[0]) / (command_.norm() + 1e-8)) * pow(gc_.tail(nJoints_)(3 * i), 2);
       }
@@ -504,7 +504,8 @@ class RaiboController {
     jointLimitReward_ += cf * jointLimitRewardCoeff_ * jointLimitReward;
 
     /// Pronk reward
-    if (!footContactState_[0] && !footContactState_[1] && !footContactState_[2] && !footContactState_[3])
+    if ((!footContactState_[0] && !footContactState_[1] && !footContactState_[2] && !footContactState_[3]) ||
+        (footContactState_[0] && footContactState_[1] && footContactState_[2] && footContactState_[3]))
     {
       if (!standingMode_) pronkReward_ += pronkRewardCoeff_ ;
     }

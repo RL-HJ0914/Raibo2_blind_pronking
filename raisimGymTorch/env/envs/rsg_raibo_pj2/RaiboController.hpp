@@ -387,8 +387,8 @@ class RaiboController {
   }
 
   inline void accumulateRewards(const double &cf, const RandomHeightMapGenerator::GroundType &groundType, const bool &pyramidOrNot, const double &envTerrainLevel, const int &iter) {
-    double targetBaseHeight = 0.5;
-    double targetFootHeight = 0.06;
+    double targetBaseHeight = 0.53;
+    double targetFootHeight = 0.08;
     double terrainLevel = envTerrainLevel;
     double linearCommandTrackingReward = 0., angularCommandTrackingReward = 0.;
     linearCommandTrackingReward += std::exp(-1.0 * (command_.head(2) - bodyLinVel_.head(2)).squaredNorm());
@@ -441,8 +441,8 @@ class RaiboController {
       else {
         if (airTime_[i] < 0.25)
           airtimeReward_ += std::min(airTime_[i], 0.2) * airtimeRewardCoeff_;
-        if (stanceTime_[i] < 0.6)
-          airtimeReward_ += 3*std::min(stanceTime_[i], 0.6) * airtimeRewardCoeff_;
+        if (stanceTime_[i] < 0.2)
+          airtimeReward_ += 3*std::min(stanceTime_[i], 0.2) * airtimeRewardCoeff_;
 
         jointRollPosReward_ += cf * jointRollPosRewardCoeff_ * (std::abs(command_[0]) / (command_.norm() + 1e-8)) * pow(gc_.tail(nJoints_)(3 * i), 2);
       }
@@ -470,7 +470,7 @@ class RaiboController {
             if (heightScan2_[i][0] < targetFootHeight) {
               footClearanceReward_ += footClearanceRewardCoeff_ *
                   std::pow(heightScan2_[i][0] - targetFootHeight, 2) *
-                  footVel_[i].e().norm() / (0.2 + command_.norm());
+                  footVel_[i].e().norm() / (0.2 + command_.head(2).norm());
             }
           }
         }

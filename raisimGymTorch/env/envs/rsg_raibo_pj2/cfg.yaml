@@ -29,7 +29,7 @@ environment:
     command_tracking_reward_coeff: 1.5
     airtime_reward_coeff: 0.9
     base_height_reward_coeff: 2.0
-    foot_clearance_reward_coeff: -30.0
+    foot_clearance_reward_coeff: -600.0
     foot_vel_before_contact_reward_coeff: -0.4
     base_motion_reward_coeff: -20.0
     torque_reward_coeff: -8.0e-4
